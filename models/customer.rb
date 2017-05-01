@@ -15,4 +15,27 @@ class Customer
     customer = SqlRunner.run(sql).first
     @id = customer['id'].to_i
   end
+
+  def self.delete_all()
+    sql = "DELETE FROM customers"
+    SqlRunner.run(sql)
+  end
+
+  def delete()
+  sql = "DELETE FROM customers WHERE id = #{@id}"
+  SqlRunner.run(sql)
+  end
+
+  def update()
+  sql = "
+  UPDATE films SET (
+    name
+  ) = (
+    '#{@name}' )
+  WHERE id = #{@id}"
+  SqlRunner.run(sql)
+  end
+
+
+
 end
