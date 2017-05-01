@@ -6,7 +6,7 @@ class Customer
   attr_accessor :name
 
   def initialize( options )
-    @id = options['options'].to_i
+    @id = options['id'].to_i
     @name = options['name']
   end
 
@@ -22,18 +22,18 @@ class Customer
   end
 
   def delete()
-  sql = "DELETE FROM customers WHERE id = #{@id}"
-  SqlRunner.run(sql)
+    sql = "DELETE FROM customers WHERE id = #{@id}"
+    SqlRunner.run(sql)
   end
 
   def update()
-  sql = "
-  UPDATE films SET (
-    name
-  ) = (
-    '#{@name}' )
-  WHERE id = #{@id}"
-  SqlRunner.run(sql)
+    sql = "
+    UPDATE films SET (
+      name
+    ) = (
+      '#{@name}' )
+    WHERE id = #{@id}"
+    SqlRunner.run(sql)
   end
 
   def films()
